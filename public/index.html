@@ -1,65 +1,134 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.20.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.20.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.20.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.20.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.20.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <!-- App Description -->
+    <meta name="description" content="WeatherPredict">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <meta name="application-name" content="WeatherPredict">
+
+    <meta name="theme-color" content="#7127c0" />
+
+    <meta name="msapplication-TileColor" content="#7127c0">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#7127c0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+   
+    <!-- ios Support -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <meta name="apple-mobile-web-app-title" content="WeatherPredict">
+
+    <meta name="apple-mobile-web-app-status-bar" content="#7127c0" />
+
+    <!-- font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    <!-- Google Fonts CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:wght@600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- //Weather Icons CSS -->
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    
+    <!-- //Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <title>WeatherPredict - GADS Practice Project</title>
+</head>
+<body>
+
+    <div class="overlay">
+        <nav>
+            <!-- Search Location Section -->
+            <section class="weather__location__search">
+                <h3 class="logo"> 
+                    <i class='wi wi-day-thunderstorm'></i>
+                    <span>WeatherPredict</span>
+                </h3>
+                <div class="search__container">
+                    <label for="search" aria-label="search city"></label>
+                    <input id='search' class="weather__search" name="search" type="search" placeholder="Search City" >
+                    <i class="fas fa-search-location search__icon"></i>
+                </div>
+            </section>
+        </nav>
+        
+        <main>
+            
+            <!-- Weather Preview Section (City, Country and Date information) -->
+            <section class="weather__preview">
+                
+            </section>
+    
+            <!-- Weather information -->
+            <div class="weather__today">
+                <section class="weather__description">
+                
+                </section>
+    
+                <section class="weather__details">
+                    <p>Welcome to Weather+ 😊, Please input a location for weather search</p> 
+    
+                    <p>You can search for your current location weather <a id="location" >here</a> </p>
+    
+                    <p>Made with 💓 by <a href="https://github.com" rel="noreferrer">Franklyn</a></p>
+                </section>
+            </div>
+    
+            <!-- Weekly weather Forecast -->
+            <section class="future__weather__forecast">
+                   
+            </section>
+                
+    
+            <button class="install__button"  aria-label="install" hidden>install</button>
+        </main>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
+    <script src="scripts/index.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        // Register service worker.
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((reg) => {
+                console.log('Service worker registered.', reg);
+                });
+        });
         }
-      });
     </script>
-  </body>
+    <!-- <script src="/scripts/install.js"></script> -->
+
+
+
+    
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAXNEQEafQ3_zmr5J3ph8l--gGq2snsQgw",
+    authDomain: "weatherapp-9a41d.firebaseapp.com",
+    databaseURL: "https://weatherapp-9a41d.firebaseio.com",
+    projectId: "weatherapp-9a41d",
+    storageBucket: "weatherapp-9a41d.appspot.com",
+    messagingSenderId: "515957326342",
+    appId: "1:515957326342:web:4be564ecdc84aee3597987"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</body>
 </html>
